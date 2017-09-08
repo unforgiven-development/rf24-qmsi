@@ -1279,28 +1279,28 @@ void rf24_err_notify(void);
  * @li <a href="http://tmrh20.github.io/RF24/classRF24.html"><b>RF24</b> Class Documentation</a>
  * @li <a href="https://github.com/TMRh20/RF24/archive/master.zip"><b>Download</b></a>
  * @li <a href="https://github.com/tmrh20/RF24/"><b>Source Code</b></a>
- * @li <a href="http://tmrh20.blogspot.com/2014/03/high-speed-data-transfers-and-wireless.html"><b>My Blog:</b> RF24 Optimization Overview</a> 
+ * @li <a href="http://tmrh20.blogspot.com/2014/03/high-speed-data-transfers-and-wireless.html"><b>My Blog:</b> RF24 Optimization Overview</a>
  * @li <a href="http://www.nordicsemi.com/files/Product/data_sheet/nRF24L01_Product_Specification_v2_0.pdf">Chip Datasheet</a>
  *
  * **Additional Information and Add-ons**
  *
- * @li <a href="http://tmrh20.github.io/RF24Network"> <b>RF24Network:</b> OSI Network Layer for multi-device communication. Create a home sensor network.</a>
- * @li <a href="http://tmrh20.github.io/RF24Mesh"> <b>RF24Mesh:</b> Dynamic Mesh Layer for RF24Network</a>
- * @li <a href="http://tmrh20.github.io/RF24Ethernet"> <b>RF24Ethernet:</b> TCP/IP Radio Mesh Networking (shares Arduino Ethernet API)</a>
- * @li <a href="http://tmrh20.github.io/RF24Audio"> <b>RF24Audio:</b> Realtime Wireless Audio streaming</a>
+ * @li <a href="http://tmrh20.github.io/RF24Network"><b>RF24Network:</b> OSI Network Layer for multi-device communication. Create a home sensor network.</a>
+ * @li <a href="http://tmrh20.github.io/RF24Mesh"><b>RF24Mesh:</b> Dynamic Mesh Layer for RF24Network</a>
+ * @li <a href="http://tmrh20.github.io/RF24Ethernet"><b>RF24Ethernet:</b> TCP/IP Radio Mesh Networking (shares Arduino Ethernet API)</a>
+ * @li <a href="http://tmrh20.github.io/RF24Audio"><b>RF24Audio:</b> Realtime Wireless Audio streaming</a>
  * @li <a href="http://tmrh20.github.io/">All TMRh20 Documentation Main Page</a>
  *
  * **More Information and RF24 Based Projects**
  *
- * @li <a href="http://TMRh20.blogspot.com"> Project Blog: TMRh20.blogspot.com </a>
- * @li <a href="http://maniacalbits.blogspot.ca/"> Maniacal Bits Blog</a>
+ * @li <a href="http://TMRh20.blogspot.com">Project Blog: TMRh20.blogspot.com</a>
+ * @li <a href="http://maniacalbits.blogspot.ca/">Maniacal Bits Blog</a>
  * @li <a href="http://www.mysensors.org/">MySensors.org (User friendly sensor networks/IoT)</a>
- * @li <a href="https://github.com/mannkind/RF24Node_MsgProto"> RF24Node_MsgProto (MQTT)</a>
- * @li <a href="https://bitbucket.org/pjhardy/rf24sensornet/"> RF24SensorNet </a>
+ * @li <a href="https://github.com/mannkind/RF24Node_MsgProto">RF24Node_MsgProto (MQTT)</a>
+ * @li <a href="https://bitbucket.org/pjhardy/rf24sensornet/">RF24SensorNet</a>
  * @li <a href="http://www.homeautomationforgeeks.com/rf24software.shtml">Home Automation for Geeks</a>
- * @li <a href="https://maniacbug.wordpress.com/2012/03/30/rf24network/"> Original Maniacbug RF24Network Blog Post</a>
- * @li <a href="https://github.com/maniacbug/RF24"> ManiacBug on GitHub (Original Library Author)</a>
- * 
+ * @li <a href="https://maniacbug.wordpress.com/2012/03/30/rf24network/">Original Maniacbug RF24Network Blog Post</a>
+ * @li <a href="https://github.com/maniacbug/RF24">ManiacBug on GitHub (Original Library Author)</a>
+ *
  *
  * <br>
  *
@@ -1379,7 +1379,7 @@ void rf24_err_notify(void);
  * <br>
  * **Alternate Hardware (UART) Driven  SPI**
  *
- * The Serial Port (UART) on Arduino can also function in SPI mode, and can double-buffer data, while the 
+ * The Serial Port (UART) on Arduino can also function in SPI mode, and can double-buffer data, while the
  * default SPI hardware cannot.
  *
  * The SPI_UART library is available at https://github.com/TMRh20/Sketches/tree/master/SPI_UART
@@ -1428,27 +1428,27 @@ void rf24_err_notify(void);
  * <br>
  *    **ATtiny25/45/85 Pin map with CE_PIN 3 and CSN_PIN 3** => PB3 and PB4 are free to use for application <br>
  *    Circuit idea from http://nerdralph.blogspot.ca/2014/01/nrf24l01-control-with-3-attiny85-pins.html <br>
- *   Original RC combination was 1K/100nF. 22K/10nF combination worked better.                          <br>
- *	For best settletime delay value in RF24::csn() the timingSearch3pin.ino sketch can be used.         <br>
+ *    Original RC combination was 1K/100nF. 22K/10nF combination worked better.                         <br>
+ *    For best settletime delay value in RF24::csn() the timingSearch3pin.ino sketch can be used.       <br>
  *    This configuration is enabled when CE_PIN and CSN_PIN are equal, e.g. both 3                      <br>
  *    Because CE is always high the power consumption is higher than for 5 pins solution                <br>
  * @code
- *                                                                                           ^^         
- *                                 +-\/-+           nRF24L01   CE, pin3 ------|              //         
- *                           PB5  1|o   |8  Vcc --- nRF24L01  VCC, pin2 ------x----------x--|<|-- 5V    
- *                   NC      PB3  2|    |7  PB2 --- nRF24L01  SCK, pin5 --|<|---x-[22k]--|  LED         
- *                   NC      PB4  3|    |6  PB1 --- nRF24L01 MOSI, pin6  1n4148 |                       
- *    nRF24L01 GND, pin1 -x- GND  4|    |5  PB0 --- nRF24L01 MISO, pin7         |                       
- *                        |        +----+                                       |                       
- *                        |-----------------------------------------------||----x-- nRF24L01 CSN, pin4  
- *                                                                      10nF                            
+ *                                                                                           ^^
+ *                                 +-\/-+           nRF24L01   CE, pin3 ------|              //
+ *                           PB5  1|o   |8  Vcc --- nRF24L01  VCC, pin2 ------x----------x--|<|-- 5V
+ *                   NC      PB3  2|    |7  PB2 --- nRF24L01  SCK, pin5 --|<|---x-[22k]--|  LED
+ *                   NC      PB4  3|    |6  PB1 --- nRF24L01 MOSI, pin6  1n4148 |
+ *    nRF24L01 GND, pin1 -x- GND  4|    |5  PB0 --- nRF24L01 MISO, pin7         |
+ *                        |        +----+                                       |
+ *                        |-----------------------------------------------||----x-- nRF24L01 CSN, pin4
+ *                                                                      10nF
  * @endcode
  *
  * <br>
  *    **ATtiny24/44/84 Pin map with CE_PIN 8 and CSN_PIN 7** <br>
- *	Schematic provided and successfully tested by Carmine Pastore (https://github.com/Carminepz) <br>
+ *    Schematic provided and successfully tested by Carmine Pastore (https://github.com/Carminepz) <br>
  * @code
- *                                  +-\/-+                                                              
+ *                                  +-\/-+
  *    nRF24L01  VCC, pin2 --- VCC  1|o   |14 GND --- nRF24L01  GND, pin1
  *                            PB0  2|    |13 AREF
  *                            PB1  3|    |12 PA1
@@ -1457,8 +1457,8 @@ void rf24_err_notify(void);
  *                            PA7  6|    |9  PA4 --- nRF24L01  SCK, pin5
  *    nRF24L01 MISO, pin7 --- PA6  7|    |8  PA5 --- nRF24L01 MOSI, pin6
  *                                  +----+
- *	@endcode					 
- *	
+ * @endcode
+ *
  * <br>
  *    **ATtiny2313/4313 Pin map with CE_PIN 12 and CSN_PIN 13** <br>
  * @code
@@ -1866,4 +1866,3 @@ void rf24_err_notify(void);
  */
 
 #endif // __RF24_H__
-
